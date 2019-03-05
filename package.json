@@ -1,0 +1,15 @@
+{
+  "name": "prove09",
+  "version": "1.0.0",
+  "description": "week 9 prove assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kayla Hellbusch",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
