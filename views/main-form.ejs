@@ -1,23 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <style>
+        form {
+            margin: 0 auto;
+            margin-top: 100px;
+            max-width: 600px;
+        }
+        .text-danger {
+            margin-top: -20px;
+        }
+    </style>
     <title>Mail</title>
 </head>
+
 <body>
-    <form action="/get-cost">
-        <label>Weight:</label>
-        <input type="number" name="weight">
-        <label>Type of mail:</label>
-        <select name="type">
+    <form action="/get-cost" class="text-center border border-medium p-5">
+        <p class="h4 mb-4">Postal Rate Calculator</p>
+
+        <!-- <label class="h5 mb-4">Type of mail:</label> -->
+        <label class="float-left">Type of mail:</label>
+        <select id="type" name="type" class="form-control mb-4">
+            <option selected disabled>Select a type of mail...</option>
             <option value="letterStamped">Letters (Stamped)</option>
-            <option value="letterMetered">Letters (Metered</option>
+            <option value="letterMetered">Letters (Metered)</option>
             <option value="largeEnvelope">Large Envelopes (Flats)</option>
             <option value="retail">First-Class Package Service&mdash;Retail</option>
         </select>
-        <button type="submit">Submit</button>
+
+        <!-- <label class="h5 mb-4">Weight: (oz)</label> -->
+        <!-- <input type="number" name="weight" placeholder="weight" class="form-control mb-4"> -->
+        <label class="float-left">Weight (in ounces):</label>
+        <select id="weight" name="weight" class="form-control mb-4">
+            <option selected disabled>Select a weight...</option>
+        </select>
+        <p class="text-danger float-left">You must first select a type of mail</p>
+
+        <button type="submit" class="btn btn-info btn-block my-4">Submit</button>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#type").change(function () {
+                var selected = $("#type option:selected").val();
+                console.log(selected);
+                switch (selected) {
+                    case "letterStamped":
+                    case "letterMetered":
+                        addWeights(3);
+                        break;
+                    case "largeEnvelope":
+                    case "retail":
+                        addWeights(13);
+                        break;
+                }
+            });
+
+            function addWeights(num) {
+                $("#weight").empty();
+                $("#weight").append("<option selected disabled>Select a weight...</option>");
+                // $(num).each(function (i) {
+                //     let current = i+1;
+                //     $("#weight").append("<option value = '" + current + "'>" + current + "</option>")
+                // });
+                for (i = 1; i <= num; i++) {
+                    $("#weight").append("<option value = '" + i + "'>" + i + "</option>")
+                }
+                if (num == 3) {
+                    $("#weight").append("<option value = '3.5'>3.5</option>")
+                }
+            }
+        });
+    </script>
 </body>
+
 </html>

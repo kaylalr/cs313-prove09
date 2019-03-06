@@ -59,43 +59,43 @@ function calculateRate(weight, type) {
             break;
         case "largeEnvelope":
             switch (weight) {
-                case "1":
+                case 1:
                     rate = 1
                     break;
-                case "2":
+                case 2:
                     rate = 1.15
                     break;
-                case "3":
+                case 3:
                     rate = 1.3
                     break;
-                case "4":
+                case 4:
                     rate = 1.45
                     break;
-                case "5":
+                case 5:
                     rate = 1.6
                     break;
-                case "6":
+                case 6:
                     rate = 1.75
                     break;
-                case "7":
+                case 7:
                     rate = 1.9
                     break;
-                case "8":
+                case 8:
                     rate = 2.05
                     break;
-                case "9":
+                case 9:
                     rate = 2.20
                     break;
-                case "10":
+                case 10:
                     rate = 2.35
                     break;
-                case "11":
+                case 11:
                     rate = 2.5
                     break;
-                case "12":
+                case 12:
                     rate = 2.65
                     break;
-                case "13":
+                case 13:
                     rate = 2.8
                     break;
             }
